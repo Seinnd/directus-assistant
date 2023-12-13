@@ -1,35 +1,32 @@
 <template>
-    <div class="conversation">
-        <div class="chat-container">
+    <div id="module-assistant-chat">
+        <div class="module-assistant-chat_container">
             <chat-message v-for="message in conversation" :key="message.id" :message="message" />
         </div>
         <chat-bar key="chatbar" :disabled="sendingMessage" @send-message="onSendMessage($event)" />
     </div>
 </template>
 
-<style>
-#main-content {
-    display: flex;
-    flex-direction: column;
-}
-</style>
-
-<style scoped>
-.conversation {
+<style type="css">
+main > #module-assistant-chat {
     display: flex;
     flex-direction: column;
     flex: 1;
+    padding: var(--content-padding) 0 0 0 !important;
+    margin: var(--theme--form--column-gap) auto 0 auto !important;
+    box-sizing: border-box;
+    height: calc(100% - (61px + (var(--theme--form--column-gap) + var(--content-padding))));
+    margin-bottom: 0!important;
 }
-
-.conversation .chat-container {
+main > #module-assistant-chat > .module-assistant-chat_container {
     display: flex;
     flex-direction: column;
-    padding: 0 2rem;
-    gap: 2rem;
+    justify-content: flex-end;
+    padding: calc(var(--content-padding) * 2) var(--content-padding);
+    gap: var(--theme--form--column-gap);
     flex: 1;
     overflow-x: hidden;
     overflow-y: auto;
-    padding-bottom: 2rem;
 }
 </style>
 
